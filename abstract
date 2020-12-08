@@ -1,0 +1,6 @@
+Knowledge Discovery in High-dimensional Streams
+-----------------------------------------------
+
+``Knowledge Discovery in Databases'' (KDD) is known as the process of extracting useful insights from data. KDD is challenging with high-dimensional streams, i.e., when (a) the data is composed of many signals, e.g., hundreds or thousands, and (b) the data can evolve over time in unpredictable ways. In such a setting, obtaining ground truth is very expensive or even impossible, so one must extract knowledge in an unsupervised way. 
+Thus, ``Knowledge Discovery in High-dimensional Streams'' (KD-HS) remains an open problem in the field of Machine Learning. On the other hand, it is extremely useful in many scenarios: If knowledge hidden in the data can be extracted immediately, production volumes can increase, or additional costs can be avoided. This would lead to significant impacts on ``Predictive Maintenance'' and ``Industry 4.0''.
+Throughout my Ph.D. project, my goal is to establish the foundations for KD-HS. In this talk, I will present my recent work, including the development of novel methods to estimate and monitor dependency in high-dimensional streams. I will give an outlook on possible applications and further developments, such as the detection of anomalies, intrusions or clusters in high-dimensional streams of data. 

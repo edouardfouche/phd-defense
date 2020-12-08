@@ -1,0 +1,43 @@
+Good afternoon everyone and thank you for attending. Welcome to the defense of my dissertation "Estimating Dependency, Monitoring and Knowledge Discovery in High-Dimensional Data Streams". This presentation will last about 25 minutes, and I will answer questions afterwards. Let's start with the motivations: 
+
+Data Mining, also known as Knowledge Discovery, is the process of extracting knowledge from massive data sets. Data Mining  has massive impacts on our daily lives: 
+    • For example, it helps to find treatments for human diseases 
+    • It determines the content we are exposed to, for instance, in social media 
+    • And it helps to improve the cost-efficiency of manufacturing, in particular, with predictive maintenance. 
+
+Knowledge Discovery from Data (in short: KDD) describes a standard procedure for virtually any data analysis task. We usually see it as a 5-step process:
+    • First, we clean and integrate the data into a so-called Data Warehouse
+    • Then, we select the data that is most relevant for our specific task and transforms it into a format that is suitable for further analysis
+    • Then, we apply so-called Data Mining algorithms to extract patterns and
+    • Finally, we represent the patterns so that humans can understand them. 
+This process is often seen as a cycle, where we can use the knowledge gained to improve the previous steps. 
+
+However, modern tasks often involve High-Dimensional Data Streams, which comes with two sets of challenges: 
+
+On the one hand, with high-dimensional data, several effects, known as the ``curse of dimensionality'', challenge Knowledge Discovery. The space becomes extremely sparse, and as we can see here on the right, when dimensionality increases, the distances between points converge to the same value. At the same time, the number of attribute subsets increases exponentially. Thus, we need algorithms which are robust and efficient at the same time. 
+
+On the other hand, in Data Streams, the characteristics of data change in unexpected ways, a phenomenon known as concept drift. This may occur in many different ways, so we need adaptive techniques. 
+
+When looking at other works, we find that their either target at solving the problems linked to high-dimensionality or the streaming setting. Unfortunately, only a few methods are dealing with issues at the intersection of both. 
+
+This observation is the starting point of my dissertation. I want to bridge this gap by proposing fundamental tools addressing both challenges simultaneously. 
+
+A fundamental task of Knowledge Discovery is estimating dependency between attributes. Dependency, or correlation, characterises the strength of a relationship between attributes. In practice, it can *only* be estimated from empirical observations. Examples of popular estimators are Pearson's, Spearman correlation, or Mutual Information. 
+
+Dependency estimation plays a central role in KDD: At any step of the pipeline, we find methods that rely on dependency estimation, for example in Exploratory Data Mining, Feature Selection, Feature Engineering, Data Mining algorithms, such as clustering or outlier detection algorithms and Data Summarisation. 
+
+However, there are to our knowledge no dependency estimation methods suitable for high-dimensional data streams and no methods to monitor such statistics efficiently over time. 
+
+In my dissertation, I illustrate and motivate my results against a real-world use case: the Bioliq power plant. The goal of Bioliq project is to develop the process to transform biomass into fuel. Here, we can see a simplified representation of the first part of the process, the so-called “fast pyrolysis”, which takes place in a pilot plant at KIT campus north. 
+
+The plant is equipped with hundreds of sensors and data is continuously collected, so this a perfect example of a high-dimensional stream. The fast pyrolysis is still an experimental and not completely understood process. However, based on data, we might improve our knowledge about the process. 
+
+Let us look, for example, at the relationship between the temperature T in the reactor and the filling level F of the flue gas cyclone connected at its output. Here is a typical day at Bioliq. In the morning, the reactor heats up to its working temperature. The material introduced into the reactors leads to the exhaustion of flue gas, stored the cyclone for further processing. Here we report the mutual information between T and F at any time. We can see that the mutual information suddenly drops at a quarter to eight. The cyclone in this period does not operate as it should, which indicates an interruption. Such interruption can become costly if unnoticed. Thus, a careful monitoring of the plant is essential because drifting dependencies might show abnormal behavior.
+
+Based on these observations, I defined three research questions. The first question is how to estimate dependency in high-dimensional data streams efficiently and effectively. Then, once we can estimate dependency, how can one keep track of the evolution of such estimates (or virtually any statistics) in high-dimensional data streams? Finally, how can we leverage such new techniques to reveal patterns, such as anomalies.
+
+Those questions form the three pillars of my thesis, which we find in its title and its structure as well: 
+
+In the first part of the dissertation, we address the question about estimating dependency. We propose Monte Carlo Dependency Estimation, a framework to estimate dependency in high-dimensional data streams. Then, we formulate the problem of monitoring statistics as a Multi-Armed Bandit problem. We extend the existing models by proposing the so-called "Scaling Multi-Armed Bandits". Finally, we exploit the synergies between those two contributions and combine our ideas to facilitate subspace search in data streams. Our method, Streaming Greedy Maximum Random Deviation, leads to very good results for outlier detection. Then, we propose the kj- Nearest Neighbours, a method to detect outlying documents in large text corpora.
+
+We published our findings about MCDE in the SSDBM conference last year (where we obtained the best paper award), and published a follow-up study in the DAPD journal. We published the Scaling Multi-Armed Bandits at the KDD conference. The other two contributions are currently under review. For this reason, and because of time restrictions, I will mostly focus on those first two items. 

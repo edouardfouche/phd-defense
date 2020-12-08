@@ -1,0 +1,36 @@
+\documentclass[tikz, 36pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{patterns}
+\usetikzlibrary{backgrounds}
+
+\definecolor{uiucblue}{RGB}{19,42,76}
+\definecolor{uiucred}{RGB}{232,74,39}
+\definecolor{kitgreen}{RGB}{43,135,115}
+
+\usepackage{fix-cm}    
+
+\makeatletter
+\newcommand\HUGE{\@setfontsize\Huge{40}{50}}
+\makeatother    
+
+\begin{document}
+\begin{tikzpicture}[thick, background rectangle/.style={fill=white!45}, show background rectangle]
+
+\begin{scope}
+\clip (2.5,2) circle (2.5cm);
+\fill[pattern=crosshatch, pattern color=uiucred] (6.5,2) circle (2.5cm);
+\end{scope}
+%\node[text width=0.7cm] at (3,3) {\cite{Keller2012}};
+\draw (2.5,2.00) node {\HUGE HD};
+\draw (2.5,2) circle (2.5cm);
+
+\draw (6.5,2) circle (2.5cm);
+\draw (6.5,2.00) node {\HUGE DS};
+
+%\draw[thick,->] (4.5,0.0) -- (4.5,1.5);
+
+%\draw (4.5,-0.3)  node {\Large \textsc{\textbf{?}}};
+
+\end{tikzpicture}
+\end{document}
